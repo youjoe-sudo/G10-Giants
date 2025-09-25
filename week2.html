@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificates</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f1c40f, #f39c12);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .certificate {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .certificate img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .certificate:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    /* 📱 تحسين الشكل على الموبايل */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+      .gallery {
+        grid-template-columns: 1fr; /* شهادة واحدة في الصف */
+        gap: 20px;
+      }
+      .certificate {
+        border-radius: 20px;
+      }
+      .certificate img {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏅 Certificates Gallery (week2)</h1>
+
+  <div class="gallery">
+    <div class="certificate">
+      <img src="4.jpg" alt="First Place Certificate">
+    </div>
+    <div class="certificate">
+      <img src="5.jpg" alt="Second Place Certificate">
+    </div>
+    <div class="certificate">
+      <img src="6.jpg" alt="Third Place Certificate">
+    </div>
+  </div>
+
+</body>
+</html>
