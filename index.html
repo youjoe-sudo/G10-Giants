@@ -218,6 +218,7 @@
   <ul id="nav-links">
     <li><a href="#">الرئيسية</a></li>
     <li><a href="#about">من نحن</a></li>
+    <li><a href="cerification.html">الشهادات</a></li>
     <li><a href="#features">المميزات</a></li>
     <li><a href="#achievements">الإنجازات</a></li>
     <li><a href="contact.html">تواصل</a></li>
@@ -265,13 +266,14 @@
     <a href="https://chat.whatsapp.com/Itw7quzlza1KuzBvhaed79?mode=ems_copy_c" target="_blank">اضغط هنا للانضمام</a>
   </section>
 <!-- ✅ سيكشن المحاولات -->
-<section id="attemptSection" style="max-width:350px;margin:20px auto;padding:20px;background:#0b1220;color:#e6eef8;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.5);font-family:'Cairo',sans-serif;">
-  <h3 style="margin-top:0;">ادخل الرقم (3 محاولات)</h3>
-  <input id="answerInput" type="number" placeholder="اكتب الرقم هنا" style="width:90%;padding:10px;border-radius:8px;border:1px solid #26323f;background:#07101a;color:#e6eef8;font-size:16px;" />
-  <button id="submitBtn" style="margin-top:10px;width:100%;padding:10px;border-radius:8px;border:0;background:#0ea5a3;color:#022;font-weight:700;cursor:pointer;">تحقق</button>
-  <div id="feedback" style="margin-top:10px;font-size:14px;"></div>
-  <div style="font-size:12px;color:#9fb0c7;margin-top:5px;">المحاولات المتبقية: <span id="attemptsLeft">--</span></div>
+<section id="certificatesSection" style="max-width:350px;margin:20px auto;padding:20px;background:#0b1220;color:#e6eef8;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.5);font-family:'Cairo',sans-serif;text-align:center;">
+  <h3 style="margin-top:0;margin-bottom:15px;">🎓 قسم الشهادات</h3>
+  <button onclick="window.location.href='cerification.html'" 
+    style="width:100%;padding:12px;border-radius:8px;border:0;background:#0ea5a3;color:#022;font-weight:700;font-size:16px;cursor:pointer;transition:0.3s;">
+    اذهب إلى الشهادات
+  </button>
 </section>
+
 
 <script>
   // ⚙️ الإعدادات
@@ -292,55 +294,11 @@
     function toggleMenu() {
       document.getElementById("nav-links").classList.toggle("active");
     }
-      const CORRECT_ANSWER = 23; // الرقم الصح
-  const MAX_ATTEMPTS = 3;
-  const STORAGE_KEY = 'attempts_left';
 
-  const input = document.getElementById('answerInput');
-  const btn = document.getElementById('submitBtn');
-  const feedback = document.getElementById('feedback');
-  const attemptsSpan = document.getElementById('attemptsLeft');
-  const section = document.getElementById('attemptSection');
-
-  let attemptsLeft = parseInt(localStorage.getItem(STORAGE_KEY)) || MAX_ATTEMPTS;
-  attemptsSpan.textContent = attemptsLeft;
-
-  function updateAttempts(n) {
-    attemptsLeft = n;
-    localStorage.setItem(STORAGE_KEY, n);
-    attemptsSpan.textContent = n;
-  }
-
-  function checkHide() {
-    if (attemptsLeft <= 0) {
-      feedback.textContent = 'انتهت المحاولات!';
-      section.style.display = 'none';
-    }
-  }
-  checkHide();
-
-  btn.addEventListener('click', () => {
-    if (attemptsLeft <= 0) return;
-
-    const val = Number(input.value.trim());
-    if (val === CORRECT_ANSWER) {
-      feedback.textContent = 'صح ✅ جاري التحويل...';
-      localStorage.removeItem(STORAGE_KEY);
-      window.location.href = 'cerification.html';
-    } else {
-      updateAttempts(attemptsLeft - 1);
-      if (attemptsLeft <= 0) {
-        feedback.textContent = 'خلصت المحاولات ❌';
-        section.style.display = 'none';
-      } else {
-        feedback.textContent = `غلط، فاضل ${attemptsLeft} محاولة`;
-      }
-    }
-    input.value = '';
-  });
   </script>
 </body>
 </html>
+
 
 
 
